@@ -1,0 +1,19 @@
+{
+  "name": "list-backend",
+  "version": "1.0.0",
+  "main": "out/main.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "rollup -c rollup.config.js",
+    "watch": "rollup -c rollup.config.js --watch"
+  },
+  "devDependencies": {
+    "@types/ws": "^6.0.3",
+    "rollup": "^1.17.0",
+    "rollup-plugin-typescript2": "^0.22.0",
+    "typescript": "^3.5.3"
+  },
+  "dependencies": {
+    "ws": "^7.1.2"
+  }
+}
