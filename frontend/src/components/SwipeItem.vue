@@ -1,13 +1,19 @@
 <template>
-  <div id="root" class="swiper-container error" :style="rootStyle" :class="{ active, error: active }">
+  <div class="swiper-container error" :style="rootStyle" :class="{ active, error: active }">
     <div class="swiper-wrapper">
-      <div class="swiper-slide" />
+      <!-- <div class="swiper-slide" /> -->
+      <div class="swiper-slide endcap pa-3 d-flex justify-end align-center">
+        <v-icon class="white--text">delete</v-icon>
+      </div>
 
-      <v-list-item id="list-item" class="swiper-slide" :class="{ active }">
+      <v-list-item class="list-item swiper-slide" :class="{ active, 'elevation-2': active }">
         <slot />
       </v-list-item>
 
-      <div class="swiper-slide" />
+      <!-- <div class="swiper-slide" /> -->
+      <div class="swiper-slide endcap pa-3 d-flex justify-start align-center">
+        <v-icon class="white--text">delete</v-icon>
+      </div>
     </div>
   </div>
 </template>
@@ -37,8 +43,7 @@ export default {
     });
 
     this.swiper.on('progress', (value) => {
-      this.active = value != 0 && value != 1 && value != 0.5;
-      console.log(value);
+      this.active = value != 0.5;
     });
 
     this.swiper.on('transitionEnd', (x) => {
@@ -65,14 +70,19 @@ export default {
 </script>
 
 <style scoped lang="scss">
-#list-item {
+.list-item {
   flex: 0 0 auto;
   background-color: white;
-  transition: border-radius 150ms;
+  transition: border-radius 150ms, box-shadow 100ms;
 
   &.active {
     border-radius: 5px;
+    // box-shadow: 0 1px 3px darkgrey;
   }
+}
+
+.endcap {
+  height: 48px;
 }
 
 .swiper-slide {
