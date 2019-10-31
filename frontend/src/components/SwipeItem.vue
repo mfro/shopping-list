@@ -36,7 +36,6 @@ export default {
 
   mounted() {
     this.swiper = new Swiper(this.$el, {
-      // direction: 'horizontal',
       initialSlide: 1,
       resistanceRatio: 0,
       speed: 150,

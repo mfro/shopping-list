@@ -12,7 +12,7 @@ const ws = new WebSocket(remote);
 
 ws.addEventListener('open', () => {
     store.subscribe((mut, state) => {
-        if (mut.type == 'SET_STATE') return;
+        if (mut.type == 'ASSIGN') return;
 
         let arg = {};
         for (let key of fields) {
